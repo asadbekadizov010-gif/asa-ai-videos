@@ -1,96 +1,398 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="uz" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASA AI Videos | Portfolio</title>
+    <title>asa.ai.videos — Link in Bio Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Orbitron for futuristic aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0A0A0C',
+                        brandPanel: '#121217',
+                        brandBorder: '#23232C',
+                        brandRed: '#FF0B3A',
+                        brandRedHover: '#E0002B',
+                        brandRedGlow: 'rgba(255, 11, 58, 0.4)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Orbitron', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #0A0A0C;
+            color: #FFFFFF;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
-        header {
-            text-align: center;
-            margin: 40px 0 30px 0;
-            border-bottom: 2px solid #ff0033;
-            padding-bottom: 20px;
-            width: 100%;
-            max-width: 500px;
+
+        /* Glassmorphism background */
+        .glass-card {
+            background: rgba(18, 18, 23, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        h1 { color: #ff0033; font-size: 28px; letter-spacing: 2px; }
-        p.subtitle { color: #888; font-size: 14px; margin-top: 5px; }
-        .tier-container {
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .tier-card {
-            background: #141414;
-            border: 1px solid #333;
-            border-left: 4px solid #ff0033;
-            padding: 20px;
-            border-radius: 8px;
-            transition: 0.3s;
+        .glass-card-hover:hover {
+            border-color: rgba(255, 11, 58, 0.5);
+            box-shadow: 0 0 25px rgba(255, 11, 58, 0.25);
+            transform: translateY(-2px);
         }
-        .tier-card:hover {
-            border-color: #ff0033;
-            box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
+
+        /* Neon Glow Effects */
+        .glow-red-text {
+            text-shadow: 0 0 12px rgba(255, 11, 58, 0.6);
         }
-        .tier-title { font-size: 18px; font-weight: bold; color: #fff; }
-        .tier-details { color: #aaa; font-size: 14px; margin: 8px 0; }
-        .tier-price { color: #ff0033; font-size: 16px; font-weight: bold; }
-        .order-btn {
-            display: block;
-            width: 100%;
-            background-color: #ff0033;
-            color: #fff;
-            text-align: center;
-            padding: 12px;
-            margin-top: 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            letter-spacing: 1px;
+
+        .glow-red-box {
+            box-shadow: 0 0 20px rgba(255, 11, 58, 0.3);
         }
-        .order-btn:hover { background-color: #cc0029; }
+
+        /* Neon Pulse Animation */
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(255, 11, 58, 0.4), inset 0 0 15px rgba(255, 11, 58, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 11, 58, 0.8), inset 0 0 20px rgba(255, 11, 58, 0.4);
+            }
+        }
+
+        .pulse-border {
+            animation: pulseGlow 3s infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #23232C;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF0B3A;
+        }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex justify-center items-start antialiased selection:bg-brandRed selection:text-white">
 
-    <header>
-        <h1>ASA.AI.VIDEOS</h1>
-        <p class="subtitle">Cyberpunk & Modern AI Video Generation</p>
-    </header>
-
-    <div class="tier-container">
-        <div class="tier-card">
-            <div class="tier-title">START TIER</div>
-            <div class="tier-details">Duration: 60 seconds</div>
-            <div class="tier-price">50,000 UZS</div>
-        </div>
-
-        <div class="tier-card">
-            <div class="tier-title">PROFESSIONAL TIER</div>
-            <div class="tier-details">Duration: 90 seconds</div>
-            <div class="tier-price">100,000 UZS</div>
-        </div>
-
-        <div class="tier-card">
-            <div class="tier-title">PREMIUM TIER</div>
-            <div class="tier-details">Duration: 3 minutes</div>
-            <div class="tier-price">150,000 UZS</div>
-        </div>
+    <!-- Toast Notification Box -->
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 transform -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-brandPanel border border-brandRed/50 text-white px-5 py-3 rounded-full shadow-2xl backdrop-blur-md">
+        <i class="fa-solid fa-circle-check text-brandRed"></i>
+        <span id="toast-message" class="text-xs font-semibold tracking-wide">Havola nusxalandi!</span>
     </div>
 
-    <a href="https://instagram.com/asa.ai.videos" class="order-btn">BUYURTMA BERISH (INSTAGRAM)</a>
+    <!-- Main Mobile Shell Container -->
+    <main class="w-full max-w-md min-h-screen px-4 py-6 sm:py-10 flex flex-col gap-6 relative z-10">
 
+        <!-- Background Ambient Lights -->
+        <div class="fixed top-10 left-1/2 -translate-x-1/2 w-72 h-72 bg-brandRed/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+        <div class="fixed bottom-10 left-1/2 -translate-x-1/2 w-80 h-80 bg-brandRed/5 blur-[140px] rounded-full pointer-events-none -z-10"></div>
+
+        <!-- HERO / HEADER SECTION -->
+        <section class="glass-card rounded-3xl p-6 text-center relative overflow-hidden flex flex-col items-center">
+            
+            <!-- Red Top Accent Line -->
+            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brandRed to-transparent"></div>
+
+            <!-- Profile Avatar with Glow Ring -->
+            <div class="relative mb-4 mt-2">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-2 border-brandRed pulse-border flex items-center justify-center bg-brandDark">
+                    <div class="w-full h-full rounded-full bg-gradient-to-br from-brandPanel to-brandDark flex items-center justify-center text-3xl font-tech font-extrabold text-white tracking-widest border border-brandBorder">
+                        ASA<span class="text-brandRed">.</span>
+                    </div>
+                </div>
+                <!-- Verified Badge -->
+                <div class="absolute bottom-1 right-1 bg-brandRed text-white text-xs w-6 h-6 rounded-full flex items-center justify-center shadow-md border-2 border-brandDark" title="Verified AI Creator">
+                    <i class="fa-solid fa-check text-[10px]"></i>
+                </div>
+            </div>
+
+            <!-- Handle & Title -->
+            <h1 class="text-2xl font-tech font-bold tracking-wider text-white flex items-center gap-2">
+                @asa.ai.videos
+            </h1>
+            <p class="text-brandRed font-medium text-xs tracking-widest uppercase mt-1">AI Video & Graphic Design Studio</p>
+
+            <!-- Bio Description -->
+            <p class="text-gray-300 text-xs sm:text-sm mt-3 leading-relaxed max-w-xs">
+                Sun'iy intellekt yordamida biznes, brendlar va shaxsiy bloglar uchun yuqori sifatli vizual kontentlar hamda reklama roliklari yarataman.
+            </p>
+
+            <!-- Stats Badges -->
+            <div class="grid grid-cols-3 gap-2 w-full mt-5 pt-4 border-t border-brandBorder/60">
+                <div class="flex flex-col items-center p-2 rounded-xl bg-brandDark/50 border border-brandBorder/40">
+                    <span class="text-brandRed font-tech font-bold text-sm">48 Soat</span>
+                    <span class="text-[10px] text-gray-400">Tezkor Ijro</span>
+                </div>
+                <div class="flex flex-col items-center p-2 rounded-xl bg-brandDark/50 border border-brandBorder/40">
+                    <span class="text-brandRed font-tech font-bold text-sm">4K Ultra</span>
+                    <span class="text-[10px] text-gray-400">AI Sifat</span>
+                </div>
+                <div class="flex flex-col items-center p-2 rounded-xl bg-brandDark/50 border border-brandBorder/40">
+                    <span class="text-brandRed font-tech font-bold text-sm">100%</span>
+                    <span class="text-[10px] text-gray-400">Kreativ</span>
+                </div>
+            </div>
+
+            <!-- Primary Action Buttons -->
+            <div class="flex items-center gap-3 w-full mt-5">
+                <a href="https://instagram.com/asa.ai.videos" target="_blank" class="flex-1 bg-brandRed hover:bg-brandRedHover text-white font-semibold text-xs py-3 rounded-2xl shadow-lg shadow-brandRed/20 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-instagram text-base"></i> Direct'da Yozish
+                </a>
+                <button onclick="copyPageLink()" class="p-3 bg-brandPanel hover:bg-brandBorder text-gray-300 hover:text-white rounded-2xl border border-brandBorder transition-all flex items-center justify-center" title="Havolani nusxalash">
+                    <i class="fa-regular fa-copy text-sm"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section class="glass-card rounded-3xl p-5 sm:p-6">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-user-gear text-brandRed text-sm"></i>
+                <h2 class="text-xs font-tech font-bold tracking-wider text-gray-300 uppercase">Men Haqimda</h2>
+            </div>
+            
+            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4">
+                Salom! Mening ismim Asadbek. Zamonaviy AI vositalari (Midjourney, Runway Gen-2, Kling AI, ElevenLabs) yordamida g'oyalarni jonlantiraman. Brending, reklama videolari va ijtimoiy tarmoqlar uchun dinamik animatsiyalar tayyorlayman.
+            </p>
+
+            <!-- Skills Chips -->
+            <div class="flex flex-wrap gap-1.5">
+                <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-brandDark text-gray-300 border border-brandBorder"><i class="fa-solid fa-film text-brandRed mr-1"></i> AI Video Generation</span>
+                <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-brandDark text-gray-300 border border-brandBorder"><i class="fa-solid fa-wand-magic-sparkles text-brandRed mr-1"></i> Prompt Engineering</span>
+                <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-brandDark text-gray-300 border border-brandBorder"><i class="fa-solid fa-pen-nib text-brandRed mr-1"></i> Ssenariy Yozish</span>
+                <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-brandDark text-gray-300 border border-brandBorder"><i class="fa-solid fa-sliders text-brandRed mr-1"></i> Motion Graphics</span>
+            </div>
+        </section>
+
+        <!-- PRICING PACKAGES SECTION -->
+        <section class="flex flex-col gap-4">
+            <div class="flex items-center justify-between px-2">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-tags text-brandRed text-sm"></i>
+                    <h2 class="text-xs font-tech font-bold tracking-wider text-gray-300 uppercase">Xizmatlar va Narxlar</h2>
+                </div>
+                <span class="text-[10px] text-gray-400 bg-brandPanel px-2.5 py-1 rounded-full border border-brandBorder">Hamyonbop Tariflarni Tanlang</span>
+            </div>
+
+            <!-- START PACKAGE -->
+            <div class="glass-card glass-card-hover rounded-3xl p-5 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase">Boshlang'ich</span>
+                        <h3 class="text-lg font-tech font-bold text-white">START</h3>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xl font-bold font-tech text-white">50 000</span>
+                        <span class="text-xs text-gray-400"> so'm</span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-xs text-gray-300 mb-4 border-t border-brandBorder/50 pt-3">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> AI Video yaratish (60s gacha)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Asosiy ssenariy va promt yozish</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Oddiy matn qatlami (Subtitrlar)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> 1 marta bepul tahrirlash</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-gray-500 text-[10px]"></i> Yetkazib berish: 24-48 soat</li>
+                </ul>
+                <a href="https://instagram.com/asa.ai.videos" target="_blank" class="w-full py-2.5 rounded-xl bg-brandDark hover:bg-brandBorder border border-brandBorder text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                    <span>Tanlash</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <!-- PROFESSIONAL PACKAGE (POPULAR) -->
+            <div class="glass-card glass-card-hover rounded-3xl p-5 relative overflow-hidden border-brandRed/40 bg-gradient-to-b from-brandPanel via-brandPanel to-brandRed/10">
+                <!-- Most Popular Tag -->
+                <div class="absolute top-0 right-0 bg-brandRed text-white text-[9px] font-bold font-tech px-3 py-1 rounded-bl-xl tracking-wider uppercase shadow-md">
+                    Eng Ommabop
+                </div>
+
+                <div class="flex justify-between items-start mb-3 mt-1">
+                    <div>
+                        <span class="text-[10px] font-bold text-brandRed tracking-widest uppercase">Tavsiya Etiladi</span>
+                        <h3 class="text-lg font-tech font-bold text-white">PROFESSIONAL</h3>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xl font-bold font-tech text-white">100 000</span>
+                        <span class="text-xs text-gray-400"> so'm</span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-xs text-gray-200 mb-4 border-t border-brandBorder/80 pt-3">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> AI Video yaratish (90s gacha)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Ijodiy ssenariy va murakkab promt</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Mukammal matn va sarlavha harakati</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Maxsus logotip va fon musiqasi</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> 2 marta bepul tahrirlash</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-brandRed/80 text-[10px]"></i> Tezkor yetkazib berish (24-48s)</li>
+                </ul>
+                <a href="https://instagram.com/asa.ai.videos" target="_blank" class="w-full py-2.5 rounded-xl bg-brandRed hover:bg-brandRedHover text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-lg shadow-brandRed/30 transition-all">
+                    <span>Buyurtma Berish</span> <i class="fa-solid fa-bolt text-[10px]"></i>
+                </a>
+            </div>
+
+            <!-- PREMIUM PACKAGE -->
+            <div class="glass-card glass-card-hover rounded-3xl p-5 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <span class="text-[10px] font-bold text-gray-400 tracking-widest uppercase">Maksimal Sifat</span>
+                        <h3 class="text-lg font-tech font-bold text-white">PREMIUM</h3>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xl font-bold font-tech text-white">150 000</span>
+                        <span class="text-xs text-gray-400"> so'm</span>
+                    </div>
+                </div>
+                <ul class="space-y-2 text-xs text-gray-300 mb-4 border-t border-brandBorder/50 pt-3">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> AI Video (3 minutgacha / 180s)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> To'liq ssenariy va tahrirlash</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Murakkab harakat grafikasi & VFX</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Ovozlashtirish (AI Voiceover) integratsiyasi</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brandRed text-[10px]"></i> Ijtimoiy tarmoqlar optimallashtiruvi</li>
+                </ul>
+                <a href="https://instagram.com/asa.ai.videos" target="_blank" class="w-full py-2.5 rounded-xl bg-brandDark hover:bg-brandBorder border border-brandBorder text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                    <span>Tanlash</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO / SHOWCASE SECTION -->
+        <section class="glass-card rounded-3xl p-5 sm:p-6">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-photo-film text-brandRed text-sm"></i>
+                    <h2 class="text-xs font-tech font-bold tracking-wider text-gray-300 uppercase">Mening Ishlarim</h2>
+                </div>
+                <span class="text-[10px] text-gray-400">Namunalardan lavhalar</span>
+            </div>
+
+            <!-- Visual Grid Showcase -->
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Portfolio Card 1 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[9/16] bg-brandDark border border-brandBorder flex flex-col justify-end p-3">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/40 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 via-black to-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                        <i class="fa-solid fa-car text-3xl text-brandRed/40 group-hover:text-brandRed transition-colors"></i>
+                    </div>
+                    <div class="relative z-20">
+                        <span class="text-[9px] font-bold text-brandRed bg-brandRed/20 px-2 py-0.5 rounded border border-brandRed/30">AI Avto Reklama</span>
+                        <h4 class="text-xs font-semibold text-white mt-1">Supercar Motion</h4>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 2 -->
+                <div class="group relative rounded-2xl overflow-hidden aspect-[9/16] bg-brandDark border border-brandBorder flex flex-col justify-end p-3">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/40 to-transparent z-10"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                        <i class="fa-solid fa-user-astronaut text-3xl text-brandRed/40 group-hover:text-brandRed transition-colors"></i>
+                    </div>
+                    <div class="relative z-20">
+                        <span class="text-[9px] font-bold text-brandRed bg-brandRed/20 px-2 py-0.5 rounded border border-brandRed/30">Futuristik AI</span>
+                        <h4 class="text-xs font-semibold text-white mt-1">Cyber Visuals</h4>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://instagram.com/asa.ai.videos" target="_blank" class="mt-4 w-full py-2.5 rounded-2xl bg-brandDark border border-brandBorder hover:border-brandRed/50 text-gray-300 hover:text-white text-xs font-medium flex items-center justify-center gap-2 transition-all">
+                <i class="fa-brands fa-instagram text-brandRed"></i> Barcha Videolarni Instagram'da Ko'rish
+            </a>
+        </section>
+
+        <!-- FOOTER / CTA SECTION -->
+        <footer class="glass-card rounded-3xl p-6 text-center flex flex-col items-center mb-6">
+            <h3 class="text-base font-tech font-bold text-white mb-2">Loyiha Boshlashga Tayyormisiz?</h3>
+            <p class="text-xs text-gray-400 max-w-xs mb-4">Istalgan g'oyangizni ayting, uni AI yordamida qisqa fursatda video ko'rinishiga keltiramiz.</p>
+            
+            <a href="https://instagram.com/asa.ai.videos" target="_blank" class="w-full py-3.5 rounded-2xl bg-brandRed hover:bg-brandRedHover text-white text-xs font-bold font-tech tracking-wider uppercase shadow-xl shadow-brandRed/30 transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-instagram text-lg"></i> @asa.ai.videos
+            </a>
+
+            <div class="mt-6 pt-4 border-t border-brandBorder/50 w-full flex justify-between items-center text-[10px] text-gray-500">
+                <span>© 2026 asa.ai.videos</span>
+                <span>Barcha huquqlarhimoyalangan</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Copy Page URL Function
+        function copyPageLink() {
+            const currentUrl = window.location.href;
+            
+            // Clipboard Fallback
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(currentUrl).then(() => {
+                    showToast("Havola nusxalandi!");
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(currentUrl);
+                });
+            } else {
+                fallbackCopyTextToClipboard(currentUrl);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";  // Avoid scrolling to bottom
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    showToast("Havola nusxalandi!");
+                } else {
+                    showToast("Nusxalash imkoni bo'lmadi");
+                }
+            } catch (err) {
+                showToast("Nusxalashda xatolik");
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // Toast Notification Function
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toast-message');
+            
+            toastMessage.textContent = message;
+            toast.classList.remove('-translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('-translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+    </script>
 </body>
 </html>
